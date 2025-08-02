@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo "Building stage"
-                sh "sudo apt install tree -y"
+                sh "apt install tree -y"
             }
         }
         
