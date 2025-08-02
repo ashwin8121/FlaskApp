@@ -8,7 +8,7 @@ pipeline {
 
             steps {
                 echo "Building stage"
-                sh "apt install tree -y"
+                sh "pip install requirements"
             }
         }
         
@@ -24,7 +24,7 @@ pipeline {
 
             steps {
                 echo "Deploying the application"
-                sh "tree"
+                sh "python src/app.py"
             }
         }
     }
