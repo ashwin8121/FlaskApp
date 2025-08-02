@@ -8,6 +8,7 @@ pipeline {
 
             steps {
                 echo "Building stage"
+                sh "sudo apt install tree -y"
             }
         }
         
@@ -23,7 +24,7 @@ pipeline {
 
             steps {
                 echo "Deploying the application"
-                sh "python3 -m src/app.py"
+                sh "tree"
             }
         }
     }
