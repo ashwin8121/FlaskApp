@@ -23,6 +23,7 @@ pipeline {
 
             steps {
                 echo "Deploying the application"
+                sh "python3 -m src/app.py"
             }
         }
     }
