@@ -1,7 +1,13 @@
 pipeline {
 
-    agent any 
+    agent  {
 
+        docker {
+            
+            image 'python:3.10-slim'  // You can change to 3.9, 3.11, etc.
+            args '-u root'  // Optional: run as root if needed for installing system packages
+        }
+    }
     stages {
 
         stage("build") {
