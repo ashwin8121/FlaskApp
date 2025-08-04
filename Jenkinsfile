@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                echo "doing build stuff.."
+                pip install requirements.txt
                 '''
             }
         }
@@ -17,7 +17,8 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff.."
+                cd src
+                flask run
                 '''
             }
         }
