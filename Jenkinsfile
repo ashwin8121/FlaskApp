@@ -1,34 +1,35 @@
 pipeline {
-
-    agent  {
-
-        docker {
-
-            image 'python:3.10-slim'  // You can change to 3.9, 3.11, etc.
-            args '-u root'  // Optional: run as root if needed for installing system packages
-        }
+    agent { 
+        node {
+            label 'docker-agent-python'
+            }
+    }
+    triggers {
+        pollSCM "*/5 * * * *"
     }
     stages {
-
-        stage("build") {
-
+        stage('Build') {
             steps {
-                echo "Building stage"
-                sh "pip install requirements"
+                echo "Building.."
+                sh '''
+                echo "doing build stuff.."
+                '''
             }
         }
-        
-        stage("test") {
-
+        stage('Test') {
             steps {
-                echo "Testing Stage"
+                echo "Testing.."
+                sh '''
+                echo "doing test stuff.."
+                '''
             }
         }
-        
-        stage("deploy") {
-
+        stage('Deliver') {
             steps {
-                echo "Deploying the application"
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
             }
         }
     }
